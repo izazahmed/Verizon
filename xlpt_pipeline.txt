@@ -1,0 +1,58 @@
+pipeline:
+Dockerfile
+.gitlab-ci.yml
+docker-compose.yml
+
+on which server docker images are present?
+3 ports?
+
+//docker service status
+sudo systemctl status docker.service
+
+//to start docker
+sudo systemctl start docker.service
+
+//run a container
+sudo docker run -it (name)
+
+//display all containers
+sudo docker ps
+
+//stop and start
+docker start stop <container id>
+
+//get inside container
+docker attach
+
+//remove container
+docker rm <container id>
+
+//all containers are present at
+cd /var/lib/docker/containers
+
+//prepare custom image
+Dockerfile is like pom.xml file
+FROM is used to take base image
+EXPOSE is used to give port no's external(we can change) and internal(we cannot change)
+1. create custom image
+docker build -t apache:1.0 . (-t name 1.0 version . is current directory)
+
+2.bring a container from our custom image
+sudo docker run -d -p 80:80 --name=apache_server apache:1.0
+
+docker build --build-args HTTP=proxy.verizon.com -t <imagename>:<tag>
+//run image
+docker run -p <hostname>:<containerport> -v<hostpath>:<containerpath> --name <containername> -t <imagename/id>
+
+let u loging to the container
+docekr exec -it <containerid> <shell>
+
+//to pull docker image
+docker pull grafana(default from docekr hub)
+
+//to run image
+docker run -d -p 5400:3000 --name grafana -t <imagename>
+
+
+
+
